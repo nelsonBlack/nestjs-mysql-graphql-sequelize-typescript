@@ -5,6 +5,7 @@ nestjs cats application example with graphql and mysql implementation
 ## Getting Started
 
 you need node installed first 
+got to https://nodejs.org/en/download/
  
 ### Installing
 
@@ -33,7 +34,8 @@ navigate to browser http://localhost:3000/graphiql
 
 ##To Post data to db 
 
-``` mutation{
+``` 
+mutation{
   createCat(name:"jingo",breed:"boerboel",age:23){
     name
     breed
