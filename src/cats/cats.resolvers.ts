@@ -35,7 +35,7 @@ export class CatsResolvers {
   @Mutation('updateCat')
   async update(obj,updateData, args: Cat, context, info): Promise<Cat> {
     const updatedCat = await this.catsService.update(updateData);
-    pubsub.publish('catCreated', { catUpdated: updatedCat });
+    pubsub.publish('catUpdated', { catUpdated: updatedCat });
     return updatedCat;
   }
 
@@ -64,7 +64,7 @@ export class CatsResolvers {
   @Subscription('catDeleted')
   catDeleted() {
     return {
-      subscribe: () => pubsub.asyncIterator('deletedCat'),
+      subscribe: () => pubsub.asyncIterator('catDeleted'),
     };
   }
 }

@@ -18,11 +18,19 @@ export class CatsService {
 
   async create(createCatDto: CreateCatDto): Promise<Cat> {
     const cat = new Cat();
+    let dataSaved:any;
     cat.name = createCatDto.name;
     cat.breed = createCatDto.breed;
     cat.age = createCatDto.age;
 
-    return await cat.save();
+     return cat.save().then(data => {
+      dataSaved=data
+      return dataSaved.dataValues;
+    })
+    .catch(error => {
+     
+    });;
+     
   }
 
   async update(updateData:any): Promise<Cat> {
