@@ -1,6 +1,6 @@
 # Project Title
 
-nestjs cats application example with graphql and mysql implementation
+nestjs cats CRUD application example with graphql and mysql implementation
 
 ## Getting Started
 
@@ -55,6 +55,32 @@ query {
   }
 }
 ``` 
+###Delete cat 
+``` 
+mutation{
+  deleteCat(id:1){
+    age
+    name
+    
+    
+  }
+}
+``` 
+
+###Edit cat 
+``` 
+mutation{
+  updateCat(id:1,name:"tosh"){
+    age
+    name
+    
+    
+  }
+}
+``` 
+
+
+
 ###Get cat by id 
 ``` 
 {
@@ -87,8 +113,8 @@ response example
 
 ## Contributing
 
-Add more relations
-Add edit mutation
+Add more relations -Done
+Add edit mutation -Done
 
 ## Authors
 
