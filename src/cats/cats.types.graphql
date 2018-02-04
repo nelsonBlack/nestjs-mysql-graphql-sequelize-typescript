@@ -6,10 +6,14 @@ type Query {
 
 type Mutation {
   createCat(name: String,age: Int,breed:String): Cat
+  updateCat(id: Int!,name: String,age: Int,breed:String): Cat
+  deleteCat(id: ID!): Cat
 }
 
 type Subscription {
   catCreated: Cat
+  catUpdated:Cat
+  catDeleted:Cat
 }
 
 type Cat {

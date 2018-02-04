@@ -32,10 +32,39 @@ export class CatsResolvers {
     return createdCat;
   }
 
+  @Mutation('updateCat')
+  async update(obj,updateData, args: Cat, context, info): Promise<Cat> {
+    const updatedCat = await this.catsService.update(updateData);
+    pubsub.publish('catCreated', { catUpdated: updatedCat });
+    return updatedCat;
+  }
+
+  @Mutation('deleteCat')
+  async delete(obj,args, context, info): Promise<Cat> {
+    const { id } = args;
+    const deleteCat = await this.catsService.delete(+id);
+    pubsub.publish('catDeleted', { catDeleted: deleteCat });
+    return deleteCat;
+  }
+
   @Subscription('catCreated')
   catCreated() {
     return {
       subscribe: () => pubsub.asyncIterator('catCreated'),
+    };
+  }
+
+  @Subscription('catUpdated')
+  catUpdated() {
+    return {
+      subscribe: () => pubsub.asyncIterator('catUpdated'),
+    };
+  }
+
+  @Subscription('catDeleted')
+  catDeleted() {
+    return {
+      subscribe: () => pubsub.asyncIterator('deletedCat'),
     };
   }
 }

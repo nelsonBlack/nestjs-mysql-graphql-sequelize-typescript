@@ -25,9 +25,32 @@ export class CatsService {
     return await cat.save();
   }
 
- /*  findAll(): Cat[] {
-    return this.cats;
-  } */
+  async update(updateData:any): Promise<Cat> {
+   
+    const cat = await this.findOneById(updateData.id);
+    if(updateData.name!=undefined){
+      cat.name = updateData.name;
+    }
+    if(updateData.breed!=undefined){
+      cat.breed = updateData.breed;
+    }
+    if(updateData.age!=undefined){
+      cat.age = updateData.age;
+    }
+    
+
+    return await cat.save();
+  }
+
+  async delete(id: number): Promise<Cat> {
+   
+    const cat = await this.findOneById(id);
+    return await cat.destroy();
+  }
+
+
+
+
 
   async findAll(): Promise<Cat[]> {
     return await this.catsRepository.findAll<Cat>();
