@@ -5,9 +5,9 @@ nestjs cats CRUD application example with graphql mysql Apollo sequelize impleme
 ## Getting Started
 
 you need node installed first 
-got to https://nodejs.org/en/download/
+got to https://nodejs.org/en/download/ and follow instructions there to install node 
  
-### Installing
+### Installing and running server app
 
 ``` git clone https://github.com/nelsonBlack/nestjs-mysql-graphql-sequelize-typescript.git``` 
 
