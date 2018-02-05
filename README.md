@@ -105,7 +105,30 @@ response example
   }
 }
 ``` 
-
+###Subscription- done with apollo
+listen for create cat in a new window of graphiql http://localhost:3000/graphiql add the subscription below 
+then post data to db using above mentioned mutation 
+``` {
+subscription {
+  catCreated{
+    breed
+    age
+    name
+    id
+  }
+}
+``` 
+response example
+``` 
+{
+  "catCreated": {
+    "breed": "sdfs",
+    "age": 5252,
+    "name": "dfgsdf",
+    "id": 65
+  }
+}
+``` 
 ## Built With
 
 * [Nestjs](https://nestjs.com/)
