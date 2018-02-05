@@ -1,6 +1,6 @@
 # Project Title
 
-nestjs cats CRUD application example with graphql and mysql implementation
+nestjs cats CRUD application example with graphql mysql Apollo sequelize implementation
 
 ## Getting Started
 
